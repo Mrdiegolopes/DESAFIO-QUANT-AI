@@ -69,3 +69,14 @@ Modelo que usa valuation histórico trimestral (P/L, EV/EBITDA, P/VP) e sentimen
                                │
                                ▼
        Backtest Out-of-Sample (Sharpe, MDD, Rank Correlation Spearman)
+
+
+
+Limpeza do Código de Preços:
+Corrija o salvamento do CSV no script yfinance.
+
+Pipeline CVM (ITR / DFP):Extrair balanços e DREs históricos via dados abertos da CVM para calcular $P/L$, $EV/EBITDA$, $P/VP$ e $Dividend\ Yield$ no nível trimestral de 2015 a 2026.
+
+Módulo de Extração de Sentimento:Estruturar o pipeline de scraping e extração das transcrições de RI / Earnings Calls das empresas do IBrX-100.Implementar a função de verificação de citações (string matching exato da citação retornada pelo LLM na transcrição).
+
+Construção do Motor Fatorial + Black-Litterman:Rodar as regressões OLS com erros HAC (Newey-West) para geração do vetor de retornos esperados ($Q$) e da matriz de incerteza ($\Omega$).Calibrar a matriz de covariância histórica ($\Sigma$) e o parâmetro de aversão ao risco ($\delta$) para a otimização de Black-Litterman.
