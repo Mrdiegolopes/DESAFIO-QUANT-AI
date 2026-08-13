@@ -1,0 +1,893 @@
+[
+  {
+    "ticker":"ABEV3",
+    "url_ri":"https:\/\/ri.ambev.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ALOS3",
+    "url_ri":"https:\/\/ri.allos.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"ANIM3",
+    "url_ri":"https:\/\/ri.animaeducacao.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ASAI3",
+    "url_ri":"https:\/\/ri.assai.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"AUAU3",
+    "url_ri":"https:\/\/www.auraminerals.com\/investidores\/",
+    "pdfs_encontrados":3,
+    "pdfs_baixados":3,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"AURE3",
+    "url_ri":"https:\/\/ri.aurenenergia.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"AXIA3",
+    "url_ri":"https:\/\/ri.axia.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"AZZA3",
+    "url_ri":"https:\/\/ri.azza.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"B3SA3",
+    "url_ri":"https:\/\/ri.b3.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BBAS3",
+    "url_ri":"https:\/\/ri.bb.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BBDC3",
+    "url_ri":"https:\/\/www.bradesco.com.br\/ri",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BBDC4",
+    "url_ri":"https:\/\/www.bradescori.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BBSE3",
+    "url_ri":"https:\/\/ri.bbseguridade.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"BEEF3",
+    "url_ri":"https:\/\/ri.minervafoods.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BPAC11",
+    "url_ri":"https:\/\/ri.btgpactual.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"BRAP4",
+    "url_ri":"https:\/\/www.bradespar.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"BRAV3",
+    "url_ri":"https:\/\/ri.bravaenergia.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"BRKM5",
+    "url_ri":"https:\/\/www.braskem.com.br\/ri",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CBAV3",
+    "url_ri":"https:\/\/ri.cba.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CEAB3",
+    "url_ri":"https:\/\/ri.cea.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CMIG4",
+    "url_ri":"https:\/\/ri.cemig.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"CMIN3",
+    "url_ri":"https:\/\/ri.csn.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"COGN3",
+    "url_ri":"https:\/\/ri.cogna.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"CPFE3",
+    "url_ri":"https:\/\/ri.cpfl.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CPLE3",
+    "url_ri":"https:\/\/ri.copel.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CSAN3",
+    "url_ri":"https:\/\/ri.cosan.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CSMG3",
+    "url_ri":"https:\/\/ri.copasa.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CSNA3",
+    "url_ri":"https:\/\/ri.csn.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CURY3",
+    "url_ri":"https:\/\/ri.cury.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"CVCB3",
+    "url_ri":"https:\/\/ri.cvc.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"CXSE3",
+    "url_ri":"https:\/\/ri.caixaseguridade.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"CYRE3",
+    "url_ri":"https:\/\/ri.cyrela.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"DIRR3",
+    "url_ri":"https:\/\/ri.direcional.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ECOR3",
+    "url_ri":"https:\/\/ri.ecorodovias.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"EGIE3",
+    "url_ri":"https:\/\/ri.engie.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"EMBJ3",
+    "url_ri":"https:\/\/ri.embraer.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ENEV3",
+    "url_ri":"https:\/\/ri.eneva.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ENGI11",
+    "url_ri":"https:\/\/ri.energisa.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"EQTL3",
+    "url_ri":"https:\/\/ri.equatorialenergia.com.br",
+    "pdfs_encontrados":1,
+    "pdfs_baixados":1,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"EZTC3",
+    "url_ri":"https:\/\/ri.eztec.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"FLRY3",
+    "url_ri":"https:\/\/ri.fleury.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"GGBR4",
+    "url_ri":"https:\/\/ri.gerdau.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"GGPS3",
+    "url_ri":"https:\/\/ri.gps.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"GMAT3",
+    "url_ri":"https:\/\/ri.grupomateus.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"GOAU4",
+    "url_ri":"https:\/\/ri.gerdau.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"HAPV3",
+    "url_ri":"https:\/\/ri.hapvida.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"HYPE3",
+    "url_ri":"https:\/\/ri.hypera.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"IGTI11",
+    "url_ri":"https:\/\/ri.iguatemi.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"INTB3",
+    "url_ri":"https:\/\/ri.intelbras.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"IRBR3",
+    "url_ri":"https:\/\/ri.irbre.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"ISAE4",
+    "url_ri":"https:\/\/ri.isacteep.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"ITSA4",
+    "url_ri":"https:\/\/ri.itausa.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ITUB3",
+    "url_ri":"https:\/\/www.itau.com.br\/relacoes-com-investidores\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"ITUB4",
+    "url_ri":"https:\/\/www.itau.com.br\/relacoes-com-investidores\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"JHSF3",
+    "url_ri":"https:\/\/ri.jhsf.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"KLBN11",
+    "url_ri":"https:\/\/ri.klabin.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"LREN3",
+    "url_ri":"https:\/\/ri.lojasrenner.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"MBRF3",
+    "url_ri":"https:\/\/ri.mbrf.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"MDNE3",
+    "url_ri":"https:\/\/ri.mdne.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"MGLU3",
+    "url_ri":"https:\/\/ri.magazineluiza.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"MOTV3",
+    "url_ri":"https:\/\/ri.mobly.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"MOVI3",
+    "url_ri":"https:\/\/ri.movida.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"MRVE3",
+    "url_ri":"https:\/\/ri.mrv.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"MULT3",
+    "url_ri":"https:\/\/ri.multiplan.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"NATU3",
+    "url_ri":"https:\/\/ri.natura.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"ORVR3",
+    "url_ri":"https:\/\/ri.orizonvr.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"PETR3",
+    "url_ri":"https:\/\/www.petrobras.com.br\/ri",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"PETR4",
+    "url_ri":"https:\/\/www.investidorpetrobras.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"POMO4",
+    "url_ri":"https:\/\/ri.marcopolo.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"PRIO3",
+    "url_ri":"https:\/\/ri.prio3.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"PSSA3",
+    "url_ri":"https:\/\/ri.portoseguro.com.br",
+    "pdfs_encontrados":1,
+    "pdfs_baixados":1,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"RADL3",
+    "url_ri":"https:\/\/ri.rd.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"RAIL3",
+    "url_ri":"https:\/\/ri.rumolog.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"RAPT4",
+    "url_ri":"https:\/\/ri.randoncorp.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"RDOR3",
+    "url_ri":"https:\/\/ri.rededor.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"RECV3",
+    "url_ri":"https:\/\/ri.reciva.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"RENT3",
+    "url_ri":"https:\/\/ri.localiza.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SANB11",
+    "url_ri":"https:\/\/ri.santander.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"SAPR11",
+    "url_ri":"https:\/\/ri.sanepar.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"SAUD3",
+    "url_ri":"https:\/\/ri.sulamerica.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SBSP3",
+    "url_ri":"https:\/\/ri.sabesp.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SIMH3",
+    "url_ri":"https:\/\/ri.simpar.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SLCE3",
+    "url_ri":"https:\/\/ri.slcagricola.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SMFT3",
+    "url_ri":"https:\/\/www.smartfit.com.br\/ri",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SMTO3",
+    "url_ri":"https:\/\/ri.saomartinho.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"SUZB3",
+    "url_ri":"https:\/\/ri.suzano.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"TAEE11",
+    "url_ri":"https:\/\/ri.taesa.com.br",
+    "pdfs_encontrados":8,
+    "pdfs_baixados":8,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"TEND3",
+    "url_ri":"https:\/\/ri.tenda.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"TIMS3",
+    "url_ri":"https:\/\/ri.tim.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"TOTS3",
+    "url_ri":"https:\/\/ri.totvs.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"UGPA3",
+    "url_ri":"https:\/\/ri.ultra.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"USIM5",
+    "url_ri":"https:\/\/ri.usiminas.com",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"VALE3",
+    "url_ri":"https:\/\/vale.com\/pt\/investidores",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"VAMO3",
+    "url_ri":"https:\/\/ri.vamos.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  },
+  {
+    "ticker":"VBBR3",
+    "url_ri":"https:\/\/ri.vibraenergia.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"VIVA3",
+    "url_ri":"https:\/\/ri.vivara.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"VIVT3",
+    "url_ri":"https:\/\/ri.telefonica.com.br",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"WEGE3",
+    "url_ri":"https:\/\/ri.weg.net",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+
+    ]
+  },
+  {
+    "ticker":"YDUQ3",
+    "url_ri":"https:\/\/ri.yduqs.com.br\/",
+    "pdfs_encontrados":0,
+    "pdfs_baixados":0,
+    "erros":[
+      "página de resultados não encontrada"
+    ]
+  }
+]

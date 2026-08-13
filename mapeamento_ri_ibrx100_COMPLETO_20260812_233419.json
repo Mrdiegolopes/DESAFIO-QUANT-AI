@@ -1,0 +1,794 @@
+[
+  {
+    "ticker":"ABEV3",
+    "nome_empresa":"Ambev",
+    "url_ri":"https:\/\/ri.ambev.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 21:59:28",
+    "metodo":"original"
+  },
+  {
+    "ticker":"ALOS3",
+    "nome_empresa":"Allos",
+    "url_ri":"https:\/\/ri.allos.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"ANIM3",
+    "nome_empresa":"Ânima Holding",
+    "url_ri":"https:\/\/ri.animaeducacao.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:45:55",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"ASAI3",
+    "nome_empresa":"Assaí Atacadista",
+    "url_ri":"https:\/\/ri.assai.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:45:50",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"AUAU3",
+    "nome_empresa":"Aura Minerals",
+    "url_ri":"https:\/\/www.auraminerals.com\/investidores\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:19:08",
+    "metodo":"banco_final"
+  },
+  {
+    "ticker":"AURE3",
+    "nome_empresa":"Auren Energia",
+    "url_ri":"https:\/\/ri.aurenenergia.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:00:06",
+    "metodo":"original"
+  },
+  {
+    "ticker":"AXIA3",
+    "nome_empresa":"Axia Value",
+    "url_ri":"https:\/\/ri.axia.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:00:07",
+    "metodo":"original"
+  },
+  {
+    "ticker":"AZZA3",
+    "nome_empresa":"Azza",
+    "url_ri":"https:\/\/ri.azza.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"B3SA3",
+    "nome_empresa":"B3",
+    "url_ri":"https:\/\/ri.b3.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:01:08",
+    "metodo":"original"
+  },
+  {
+    "ticker":"BBAS3",
+    "nome_empresa":"Banco do Brasil",
+    "url_ri":"https:\/\/ri.bb.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:45:57",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"BBDC3",
+    "nome_empresa":"Bradesco",
+    "url_ri":"https:\/\/www.bradesco.com.br\/ri",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:48:29",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"BBDC4",
+    "nome_empresa":"Bradesco PN",
+    "url_ri":"https:\/\/www.bradescori.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:19:18",
+    "metodo":"banco_final"
+  },
+  {
+    "ticker":"BBSE3",
+    "nome_empresa":"BB Seguridade",
+    "url_ri":"https:\/\/ri.bbseguridade.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"BEEF3",
+    "nome_empresa":"Minerva Foods",
+    "url_ri":"https:\/\/ri.minervafoods.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:00",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"BPAC11",
+    "nome_empresa":"BTG Pactual",
+    "url_ri":"https:\/\/ri.btgpactual.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:45:58",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"BRAP4",
+    "nome_empresa":"Bradespar",
+    "url_ri":"https:\/\/www.bradespar.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"BRAV3",
+    "nome_empresa":"Brava Energia",
+    "url_ri":"https:\/\/ri.bravaenergia.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:49:54",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"BRKM5",
+    "nome_empresa":"Braskem",
+    "url_ri":"https:\/\/www.braskem.com.br\/ri",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:50:31",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"CBAV3",
+    "nome_empresa":"CBA",
+    "url_ri":"https:\/\/ri.cba.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:05:15",
+    "metodo":"original"
+  },
+  {
+    "ticker":"CEAB3",
+    "nome_empresa":"C&A Modas",
+    "url_ri":"https:\/\/ri.cea.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:05",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"CMIG4",
+    "nome_empresa":"Cemig",
+    "url_ri":"https:\/\/ri.cemig.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:06",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"CMIN3",
+    "nome_empresa":"CSN Mineração",
+    "url_ri":"https:\/\/ri.csn.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:08",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"COGN3",
+    "nome_empresa":"Cogna",
+    "url_ri":"https:\/\/ri.cogna.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"CPFE3",
+    "nome_empresa":"CPFL Energia",
+    "url_ri":"https:\/\/ri.cpfl.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:12",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"CPLE3",
+    "nome_empresa":"Copel",
+    "url_ri":"https:\/\/ri.copel.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:09",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"CSAN3",
+    "nome_empresa":"Cosan",
+    "url_ri":"https:\/\/ri.cosan.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:08:13",
+    "metodo":"original"
+  },
+  {
+    "ticker":"CSMG3",
+    "nome_empresa":"Copasa",
+    "url_ri":"https:\/\/ri.copasa.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:08:31",
+    "metodo":"original"
+  },
+  {
+    "ticker":"CSNA3",
+    "nome_empresa":"CSN",
+    "url_ri":"https:\/\/ri.csn.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:08:38",
+    "metodo":"original"
+  },
+  {
+    "ticker":"CURY3",
+    "nome_empresa":"Cury",
+    "url_ri":"https:\/\/ri.cury.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"CVCB3",
+    "nome_empresa":"CVC Brasil",
+    "url_ri":"https:\/\/ri.cvc.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"CXSE3",
+    "nome_empresa":"Caixa Seguridade",
+    "url_ri":"https:\/\/ri.caixaseguridade.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:09:18",
+    "metodo":"original"
+  },
+  {
+    "ticker":"CYRE3",
+    "nome_empresa":"Cyrela",
+    "url_ri":"https:\/\/ri.cyrela.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"DIRR3",
+    "nome_empresa":"Direcional",
+    "url_ri":"https:\/\/ri.direcional.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:10:41",
+    "metodo":"original"
+  },
+  {
+    "ticker":"ECOR3",
+    "nome_empresa":"EcoRodovias",
+    "url_ri":"https:\/\/ri.ecorodovias.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:10:56",
+    "metodo":"original"
+  },
+  {
+    "ticker":"EGIE3",
+    "nome_empresa":"Engie Brasil",
+    "url_ri":"https:\/\/ri.engie.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"EMBJ3",
+    "nome_empresa":"Embraer",
+    "url_ri":"https:\/\/ri.embraer.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:11:37",
+    "metodo":"original"
+  },
+  {
+    "ticker":"ENEV3",
+    "nome_empresa":"Eneva",
+    "url_ri":"https:\/\/ri.eneva.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:11:45",
+    "metodo":"original"
+  },
+  {
+    "ticker":"ENGI11",
+    "nome_empresa":"Energisa",
+    "url_ri":"https:\/\/ri.energisa.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:11:49",
+    "metodo":"original"
+  },
+  {
+    "ticker":"EQTL3",
+    "nome_empresa":"Equatorial",
+    "url_ri":"https:\/\/ri.equatorialenergia.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:44",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"EZTC3",
+    "nome_empresa":"EZTec",
+    "url_ri":"https:\/\/ri.eztec.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:12:23",
+    "metodo":"original"
+  },
+  {
+    "ticker":"FLRY3",
+    "nome_empresa":"Fleury",
+    "url_ri":"https:\/\/ri.fleury.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:12:29",
+    "metodo":"original"
+  },
+  {
+    "ticker":"GGBR4",
+    "nome_empresa":"Gerdau",
+    "url_ri":"https:\/\/ri.gerdau.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:46",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"GGPS3",
+    "nome_empresa":"GPS",
+    "url_ri":"https:\/\/ri.gps.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"GMAT3",
+    "nome_empresa":"Grupo Mateus",
+    "url_ri":"https:\/\/ri.grupomateus.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:13:07",
+    "metodo":"original"
+  },
+  {
+    "ticker":"GOAU4",
+    "nome_empresa":"Metalúrgica Gerdau",
+    "url_ri":"https:\/\/ri.gerdau.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:47",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"HAPV3",
+    "nome_empresa":"Hapvida",
+    "url_ri":"https:\/\/ri.hapvida.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:14:01",
+    "metodo":"original"
+  },
+  {
+    "ticker":"HYPE3",
+    "nome_empresa":"Hypera",
+    "url_ri":"https:\/\/ri.hypera.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:14:39",
+    "metodo":"original"
+  },
+  {
+    "ticker":"IGTI11",
+    "nome_empresa":"Iguatemi",
+    "url_ri":"https:\/\/ri.iguatemi.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:14:48",
+    "metodo":"original"
+  },
+  {
+    "ticker":"INTB3",
+    "nome_empresa":"Intelbras",
+    "url_ri":"https:\/\/ri.intelbras.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:15:01",
+    "metodo":"original"
+  },
+  {
+    "ticker":"IRBR3",
+    "nome_empresa":"IRB Brasil",
+    "url_ri":"https:\/\/ri.irbre.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"ISAE4",
+    "nome_empresa":"Isa Energia",
+    "url_ri":"https:\/\/ri.isacteep.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"ITSA4",
+    "nome_empresa":"Itaúsa",
+    "url_ri":"https:\/\/ri.itausa.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:48",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"ITUB3",
+    "nome_empresa":"Itaú Unibanco",
+    "url_ri":"https:\/\/www.itau.com.br\/relacoes-com-investidores\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"ITUB4",
+    "nome_empresa":"Itaú Unibanco PN",
+    "url_ri":"https:\/\/www.itau.com.br\/relacoes-com-investidores\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"JHSF3",
+    "nome_empresa":"JHSF",
+    "url_ri":"https:\/\/ri.jhsf.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:16:49",
+    "metodo":"original"
+  },
+  {
+    "ticker":"KLBN11",
+    "nome_empresa":"Klabin",
+    "url_ri":"https:\/\/ri.klabin.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:17:27",
+    "metodo":"original"
+  },
+  {
+    "ticker":"LREN3",
+    "nome_empresa":"Lojas Renner",
+    "url_ri":"https:\/\/ri.lojasrenner.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:18:00",
+    "metodo":"original"
+  },
+  {
+    "ticker":"MBRF3",
+    "nome_empresa":"Marbi",
+    "url_ri":"https:\/\/ri.mbrf.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:54:59",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"MDNE3",
+    "nome_empresa":"Mouvement",
+    "url_ri":"https:\/\/ri.mdne.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:17:31",
+    "metodo":"original"
+  },
+  {
+    "ticker":"MGLU3",
+    "nome_empresa":"Magazine Luiza",
+    "url_ri":"https:\/\/ri.magazineluiza.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:18:12",
+    "metodo":"original"
+  },
+  {
+    "ticker":"MOTV3",
+    "nome_empresa":"Mobly",
+    "url_ri":"https:\/\/ri.mobly.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"MOVI3",
+    "nome_empresa":"Movida",
+    "url_ri":"https:\/\/ri.movida.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:18:38",
+    "metodo":"original"
+  },
+  {
+    "ticker":"MRVE3",
+    "nome_empresa":"MRV",
+    "url_ri":"https:\/\/ri.mrv.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:49",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"MULT3",
+    "nome_empresa":"Multiplan",
+    "url_ri":"https:\/\/ri.multiplan.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:19:11",
+    "metodo":"original"
+  },
+  {
+    "ticker":"NATU3",
+    "nome_empresa":"Natura",
+    "url_ri":"https:\/\/ri.natura.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:19:17",
+    "metodo":"original"
+  },
+  {
+    "ticker":"ORVR3",
+    "nome_empresa":"Orizon",
+    "url_ri":"https:\/\/ri.orizonvr.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:20:22",
+    "metodo":"banco_final"
+  },
+  {
+    "ticker":"PETR3",
+    "nome_empresa":"Petrobras",
+    "url_ri":"https:\/\/www.petrobras.com.br\/ri",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:56:07",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"PETR4",
+    "nome_empresa":"Petrobras PN",
+    "url_ri":"https:\/\/www.investidorpetrobras.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:20:28",
+    "metodo":"banco_final"
+  },
+  {
+    "ticker":"POMO4",
+    "nome_empresa":"Marcopolo",
+    "url_ri":"https:\/\/ri.marcopolo.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"PRIO3",
+    "nome_empresa":"Prio",
+    "url_ri":"https:\/\/ri.prio3.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:52",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"PSSA3",
+    "nome_empresa":"Porto Seguro",
+    "url_ri":"https:\/\/ri.portoseguro.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:22:32",
+    "metodo":"original"
+  },
+  {
+    "ticker":"RADL3",
+    "nome_empresa":"Raia Drogasil",
+    "url_ri":"https:\/\/ri.rd.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:46:59",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"RAIL3",
+    "nome_empresa":"Rumo",
+    "url_ri":"https:\/\/ri.rumolog.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:01",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"RAPT4",
+    "nome_empresa":"Randon",
+    "url_ri":"https:\/\/ri.randoncorp.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"RDOR3",
+    "nome_empresa":"Rede D'Or",
+    "url_ri":"https:\/\/ri.rededor.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:23:52",
+    "metodo":"original"
+  },
+  {
+    "ticker":"RECV3",
+    "nome_empresa":"Reciva",
+    "url_ri":"https:\/\/ri.reciva.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"RENT3",
+    "nome_empresa":"Localiza",
+    "url_ri":"https:\/\/ri.localiza.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:03",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"SANB11",
+    "nome_empresa":"Santander Brasil",
+    "url_ri":"https:\/\/ri.santander.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"SAPR11",
+    "nome_empresa":"Sanepar",
+    "url_ri":"https:\/\/ri.sanepar.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:02",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"SAUD3",
+    "nome_empresa":"Sulamérica",
+    "url_ri":"https:\/\/ri.sulamerica.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:09",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"SBSP3",
+    "nome_empresa":"Sabesp",
+    "url_ri":"https:\/\/ri.sabesp.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:26:48",
+    "metodo":"original"
+  },
+  {
+    "ticker":"SIMH3",
+    "nome_empresa":"Simpar",
+    "url_ri":"https:\/\/ri.simpar.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:27:06",
+    "metodo":"original"
+  },
+  {
+    "ticker":"SLCE3",
+    "nome_empresa":"SLC Agrícola",
+    "url_ri":"https:\/\/ri.slcagricola.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:12",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"SMFT3",
+    "nome_empresa":"Smart Fit",
+    "url_ri":"https:\/\/www.smartfit.com.br\/ri",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:58:44",
+    "metodo":"alternativo"
+  },
+  {
+    "ticker":"SMTO3",
+    "nome_empresa":"São Martinho",
+    "url_ri":"https:\/\/ri.saomartinho.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:15",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"SUZB3",
+    "nome_empresa":"Suzano",
+    "url_ri":"https:\/\/ri.suzano.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:10",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"TAEE11",
+    "nome_empresa":"Taesa",
+    "url_ri":"https:\/\/ri.taesa.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:29:15",
+    "metodo":"original"
+  },
+  {
+    "ticker":"TEND3",
+    "nome_empresa":"Tenda",
+    "url_ri":"https:\/\/ri.tenda.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:16",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"TIMS3",
+    "nome_empresa":"Tim",
+    "url_ri":"https:\/\/ri.tim.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:30:18",
+    "metodo":"original"
+  },
+  {
+    "ticker":"TOTS3",
+    "nome_empresa":"Totvs",
+    "url_ri":"https:\/\/ri.totvs.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:30:21",
+    "metodo":"original"
+  },
+  {
+    "ticker":"UGPA3",
+    "nome_empresa":"Ultrapar",
+    "url_ri":"https:\/\/ri.ultra.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"USIM5",
+    "nome_empresa":"Usiminas",
+    "url_ri":"https:\/\/ri.usiminas.com",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:19",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"VALE3",
+    "nome_empresa":"Vale",
+    "url_ri":"https:\/\/vale.com\/pt\/investidores",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"VAMO3",
+    "nome_empresa":"Vamos",
+    "url_ri":"https:\/\/ri.vamos.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  },
+  {
+    "ticker":"VBBR3",
+    "nome_empresa":"Vibra",
+    "url_ri":"https:\/\/ri.vibraenergia.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:20:53",
+    "metodo":"banco_final"
+  },
+  {
+    "ticker":"VIVA3",
+    "nome_empresa":"Vivara",
+    "url_ri":"https:\/\/ri.vivara.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:33:14",
+    "metodo":"original"
+  },
+  {
+    "ticker":"VIVT3",
+    "nome_empresa":"Telefônica Brasil",
+    "url_ri":"https:\/\/ri.telefonica.com.br",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:20",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"WEGE3",
+    "nome_empresa":"WEG",
+    "url_ri":"https:\/\/ri.weg.net",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 22:47:22",
+    "metodo":"mapa_manual"
+  },
+  {
+    "ticker":"YDUQ3",
+    "nome_empresa":"Yduqs",
+    "url_ri":"https:\/\/ri.yduqs.com.br\/",
+    "status":"sucesso",
+    "timestamp":"2026-08-12 23:34:19",
+    "metodo":"manual_final"
+  }
+]

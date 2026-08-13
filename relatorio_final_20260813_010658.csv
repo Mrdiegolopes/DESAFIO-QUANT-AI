@@ -1,0 +1,6 @@
+﻿ticker,nome_empresa,url_ri,pdfs_encontrados,pdfs_baixados,erros
+ABEV3,Ambev,https://ri.ambev.com.br,0,0,[]
+ALOS3,Allos,https://ri.allos.com.br/,0,0,[]
+ANIM3,Ânima Holding,https://ri.animaeducacao.com.br,0,0,[]
+ASAI3,Assaí Atacadista,https://ri.assai.com.br,0,0,[]
+AUAU3,Aura Minerals,https://www.auraminerals.com/investidores/,0,0,[]
