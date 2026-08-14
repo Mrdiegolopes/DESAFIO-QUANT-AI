@@ -1,6 +1,83 @@
-pdfs_coletados/
-pdfs_transcricoes/
+# ─────────────────────────────────────────────
+# DADOS — nunca versionar, são regeneráveis
+# ─────────────────────────────────────────────
+data/
 data/raw/
 data/processed/
+data/interim/
+
+# ─────────────────────────────────────────────
+# PDFs e documentos coletados
+# ─────────────────────────────────────────────
+pdfs_coletados/
+pdfs_transcricoes/
 *.pdf
+
+# ─────────────────────────────────────────────
+# Outputs e relatórios gerados automaticamente
+# ─────────────────────────────────────────────
+outputs/
+relatorios/
+figuras/
+rankings/
+tabelas/
+registro_downloads*.csv
+relatorio_download*.csv
+relatorio_download*.json
+relatorio_download*.xlsx
+relatorio_final*.csv
+relatorio_selenium*.csv
+relatorio_selenium*.xlsx
+urls_ri*.txt
+
+# ─────────────────────────────────────────────
+# Arquivos temporários do Excel/Office
+# ─────────────────────────────────────────────
 ~$*
+*.tmp
+
+# ─────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# ─────────────────────────────────────────────
+# Ambiente virtual
+# ─────────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ─────────────────────────────────────────────
+# Jupyter
+# ─────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─────────────────────────────────────────────
+# Sistema operacional
+# ─────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─────────────────────────────────────────────
+# Editor / IDE
+# ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ─────────────────────────────────────────────
+# Cache e binários pesados
+# ─────────────────────────────────────────────
+cache_urls_ri.pkl
+*.pkl
+*.parquet
+*.feather
