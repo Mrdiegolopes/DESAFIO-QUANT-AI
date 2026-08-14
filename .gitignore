@@ -1,4 +1,6 @@
 pdfs_coletados/
 pdfs_transcricoes/
+data/raw/
+data/processed/
 *.pdf
 ~$*
