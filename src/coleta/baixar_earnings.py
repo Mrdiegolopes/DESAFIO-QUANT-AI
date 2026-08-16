@@ -1,328 +1,402 @@
 """
-Script de Download de PDFs com Links Fornecidos
-Você cola os links dos PDFs e o script baixa automaticamente
-Autor: Assistente
-Data: 2026
+Scraper de Earnings Calls — Top 15 IBrX-100 (v2)
+Melhorias vs v1:
+- Timeout aumentado de 15s para 30s
+- Espera de 6s após carregar (era 3s)
+- Scroll progressivo para forçar lazy load
+- Aceita links sem .pdf (botões de download via JS)
+- Tenta clicar em abas/filtros de ano quando disponíveis
+- URLs alternativas por empresa como fallback
 """
 
-import requests
-import os
-import re
-import time
-from datetime import datetime
+import os, re, time, hashlib, logging, urllib3, requests
+import unicodedata, pandas as pd
 from pathlib import Path
-from typing import List, Dict, Optional
-import json
-import pandas as pd
+from datetime import datetime
+from typing import Optional
+from urllib.parse import urljoin
 
-# Configurações
-DIRETORIO_PROJETO = Path(__file__).parent.parent.parent if '__file__' in globals() else Path.cwd()
-DIRETORIO_PDFS = DIRETORIO_PROJETO / "pdfs_coletados"
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, WebDriverException
 
-class DownloaderLinks:
-    """
-    Downloader de PDFs a partir de links fornecidos manualmente
-    """
-    
-    def __init__(self):
-        self.session = requests.Session()
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8',
-        }
-        
-        # Cria diretório de saída
-        DIRETORIO_PDFS.mkdir(parents=True, exist_ok=True)
-        
-    def baixar_pdf_unico(self, url: str, ticker: str, ano: int, trimestre: str = 'NA', tipo: str = 'documento'):
-        """
-        Baixa um único PDF a partir de link fornecido
-        
-        Args:
-            url: URL direta do PDF
-            ticker: Código da ação (ex: ABEV3)
-            ano: Ano do documento (ex: 2023)
-            trimestre: Trimestre (ex: 4T, 3T, etc.)
-            tipo: Tipo do documento (transcricao, apresentacao, release, etc.)
-        """
-        print(f"\n  Baixando PDF:")
-        print(f"    Ticker: {ticker}")
-        print(f"    Ano: {ano}")
-        print(f"    Trimestre: {trimestre}")
-        print(f"    Tipo: {tipo}")
-        print(f"    URL: {url[:100]}...")
-        
-        # Cria diretório
-        diretorio = DIRETORIO_PDFS / ticker / str(ano) / trimestre
-        diretorio.mkdir(parents=True, exist_ok=True)
-        
-        # Nome do arquivo
-        nome_arquivo = f"{ticker}_{ano}_{trimestre}_{tipo}.pdf"
-        caminho_completo = diretorio / nome_arquivo
-        
-        # Verifica se já existe
-        if caminho_completo.exists():
-            print(f"    ⚠ Já existe: {caminho_completo.name}")
-            return str(caminho_completo)
-        
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+RAIZ              = Path(__file__).parent.parent.parent
+DIRETORIO_PDFS    = RAIZ / "pdfs_coletados"
+DIRETORIO_LOGS    = RAIZ / "outputs"
+CHROMEDRIVER_PATH = RAIZ / "drivers" / "chromedriver.exe"
+
+logging.basicConfig(level=logging.INFO,
+                    format="%(asctime)s | %(levelname)s | %(message)s",
+                    datefmt="%H:%M:%S")
+log = logging.getLogger(__name__)
+
+# URLs alternativas por ticker (fallback se a principal não tiver PDFs)
+URLS_ALTERNATIVAS = {
+    "VALE3":  [
+        "https://ri.vale.com/pt-br/resultados-e-apresentacoes/central-de-resultados",
+        "https://ri.vale.com/resultados-e-apresentacoes",
+    ],
+    "ITUB4":  [
+        "https://www.itau.com.br/relacoes-com-investidores/resultados-e-informacoes/central-de-resultados",
+        "https://www.itau.com.br/relacoes-com-investidores/resultados",
+    ],
+    "PETR4":  [
+        "https://ri.petrobras.com.br/pt/resultados/central-de-resultados",
+        "https://ri.petrobras.com.br/pt/resultados",
+        "https://ri.petrobras.com.br/resultados",
+    ],
+    "PETR3":  [
+        "https://ri.petrobras.com.br/pt/resultados/central-de-resultados",
+        "https://ri.petrobras.com.br/pt/resultados",
+    ],
+    "BBDC4":  [
+        "https://ri.bradesco.com.br/pt-br/resultados-e-apresentacoes/central-de-resultados",
+        "https://ri.bradesco.com.br/pt-br/informacoes-financeiras/resultados",
+    ],
+    "BBAS3":  [
+        "https://ri.bb.com.br/informacoes-financeiras/central-de-resultados",
+        "https://ri.bb.com.br/central-de-resultados",
+    ],
+    "B3SA3":  [
+        "https://ri.b3.com.br/pt-br/informacoes-financeiras/central-de-resultados",
+        "https://ri.b3.com.br/pt-br/central-de-resultados",
+    ],
+    "WEGE3":  [
+        "https://ri.weg.net/pt-br/informacoes-financeiras/central-de-resultados",
+        "https://ri.weg.net/central-de-resultados",
+    ],
+    "ABEV3":  [
+        "https://ri.ambev.com.br/relatorios-publicacoes/divulgacao-de-resultados",
+        "https://ri.ambev.com.br/central-de-resultados",
+    ],
+    "BPAC11": [
+        "https://ri.btgpactual.com/principais-informacoes/central-de-resultados",
+        "https://ri.btgpactual.com/central-de-resultados",
+    ],
+    "EMBJ3":  [
+        "https://ri.embraer.com.br/informacoes-financeiras/central-de-resultados",
+        "https://ri.embraer.com.br/central-de-resultados",
+    ],
+    "SBSP3":  [
+        "https://ri.sabesp.com.br/informacoes-financeiras/central-de-resultados",
+        "https://ri.sabesp.com.br/central-de-resultados",
+    ],
+    "ITSA4":  [
+        "https://ri.itausa.com.br/informacoes-financeiras/central-de-resultados",
+        "https://ri.itausa.com.br/central-de-resultados",
+    ],
+    "AXIA3":  [
+        "https://ri.enelbrasil.com.br/central-de-resultados",
+        "https://ri.axiaenergia.com.br/informacoes-financeiras/central-de-resultados",
+    ],
+}
+
+KEYWORDS = {
+    "transcricao": ["transcri","transcript","teleconfer","videoconfer",
+                    "conference call","earnings call","call de resultado"],
+    "release":     ["release","press release","resultado","divulga",
+                    "earnings","comunicado","nota de resultado"],
+    "apresentacao":["apresenta","presentation","slides","webcast","investor"],
+}
+
+TRIMESTRE_KEYWORDS = {
+    "1T": ["1t","1q","1trim","primeiro trimestre","first quarter",
+           "jan","fev","mar","january","february","march"],
+    "2T": ["2t","2q","2trim","segundo trimestre","second quarter",
+           "abr","mai","jun","april","may","june"],
+    "3T": ["3t","3q","3trim","terceiro trimestre","third quarter",
+           "jul","ago","set","july","august","september"],
+    "4T": ["4t","4q","4trim","quarto trimestre","fourth quarter",
+           "out","nov","dez","october","november","december",
+           "anual","annual","full year"],
+}
+
+HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"}
+
+
+def _norm(t): 
+    t = unicodedata.normalize("NFKD", str(t))
+    return "".join(c for c in t if not unicodedata.combining(c)).lower().strip()
+
+def _contem(texto, kws): 
+    t = _norm(texto)
+    return any(_norm(k) in t for k in kws)
+
+def _detectar_tri(texto):
+    t = _norm(texto)
+    for tri, kws in TRIMESTRE_KEYWORDS.items():
+        if any(k in t for k in kws):
+            return tri
+    return None
+
+def _hash(url): 
+    return hashlib.md5(url.encode()).hexdigest()[:8]
+
+
+def _criar_driver():
+    opts = Options()
+    opts.add_argument("--headless=new")
+    opts.add_argument("--no-sandbox")
+    opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--disable-gpu")
+    opts.add_argument("--window-size=1920,1080")
+    opts.add_argument("--ignore-certificate-errors")
+    opts.add_argument("--disable-blink-features=AutomationControlled")
+    opts.add_experimental_option("excludeSwitches", ["enable-automation"])
+    opts.add_experimental_option("useAutomationExtension", False)
+    opts.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36")
+    svc = Service(executable_path=str(CHROMEDRIVER_PATH))
+    drv = webdriver.Chrome(service=svc, options=opts)
+    drv.execute_script("Object.defineProperty(navigator,'webdriver',{get:()=>undefined})")
+    return drv
+
+
+def _extrair_links(driver, url_base, ano, trimestre):
+    candidatos = {"transcricao": [], "release": [], "apresentacao": []}
+    try:
+        driver.get(url_base)
+        # Espera mais tempo para JS pesado
         try:
-            response = self.session.get(url, headers=self.headers, timeout=30)
-            
-            if response.status_code == 200 and len(response.content) > 1000:
-                with open(caminho_completo, 'wb') as f:
-                    f.write(response.content)
-                    
-                tamanho = len(response.content) / 1024  # KB
-                print(f"    ✓ Sucesso! ({tamanho:.1f} KB)")
-                print(f"    Salvo em: {caminho_completo}")
-                return str(caminho_completo)
-            else:
-                print(f"    ✗ Falha (status: {response.status_code})")
-                return None
-                
-        except Exception as e:
-            print(f"    ✗ Erro: {e}")
-            return None
-            
-    def baixar_lista_pdfs(self, lista_pdfs: List[Dict]):
-        """
-        Baixa múltiplos PDFs de uma lista
-        
-        Args:
-            lista_pdfs: Lista de dicionários com as chaves:
-                - url: URL do PDF
-                - ticker: Código da ação
-                - ano: Ano
-                - trimestre: Trimestre (opcional)
-                - tipo: Tipo do documento (opcional)
-        """
-        print(f"\n{'='*60}")
-        print(f"BAIXANDO {len(lista_pdfs)} PDFs")
-        print(f"{'='*60}")
-        
-        sucessos = 0
-        falhas = 0
-        
-        for pdf in lista_pdfs:
-            url = pdf.get('url', '')
-            ticker = pdf.get('ticker', 'EMPRESA')
-            ano = pdf.get('ano', datetime.now().year)
-            trimestre = pdf.get('trimestre', 'NA')
-            tipo = pdf.get('tipo', 'documento')
-            
-            resultado = self.baixar_pdf_unico(url, ticker, ano, trimestre, tipo)
-            
-            if resultado:
-                sucessos += 1
-            else:
-                falhas += 1
-                
-            time.sleep(1)  # Delay entre downloads
-            
-        print(f"\n{'='*60}")
-        print(f"RESUMO")
-        print(f"{'='*60}")
-        print(f"Sucessos: {sucessos}")
-        print(f"Falhas: {falhas}")
-        print(f"Total: {sucessos + falhas}")
-        print(f"{'='*60}")
-        
-    def baixar_pdfs_empresa(self, ticker: str, links_por_ano: Dict[int, List[Dict]]):
-        """
-        Baixa PDFs de uma empresa organizados por ano
-        
-        Args:
-            ticker: Código da ação
-            links_por_ano: Dicionário {ano: [{url, trimestre, tipo}, ...]}
-        """
-        print(f"\n{'='*60}")
-        print(f"BAIXANDO PDFs DE {ticker}")
-        print(f"{'='*60}")
-        
-        for ano, links in links_por_ano.items():
-            print(f"\n  Ano {ano}: {len(links)} PDFs")
-            
-            for link_info in links:
-                url = link_info.get('url', '')
-                trimestre = link_info.get('trimestre', 'NA')
-                tipo = link_info.get('tipo', 'documento')
-                
-                self.baixar_pdf_unico(url, ticker, ano, trimestre, tipo)
-                time.sleep(1)
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.TAG_NAME, "a")))
+        except TimeoutException:
+            log.warning("  Timeout 30s")
 
-def receber_links_manual():
-    """
-    Modo interativo para receber links manualmente
-    """
-    print("INSERIR LINKS MANUALMENTE")
-    print("\nInstruções:")
-    print("1. Cole o link do PDF")
-    print("2. Informe o ticker (ex: ABEV3)")
-    print("3. Informe o ano (ex: 2023)")
-    print("4. Informe o trimestre (ex: 4T) ou Enter para pular")
-    print("5. Informe o tipo (transcricao, apresentacao, release) ou Enter")
-    print("6. Digite 'sair' para terminar\n")
-    
-    downloader = DownloaderLinks()
-    pdfs_baixados = []
-    
-    while True:
-        print("\n" + "-"*60)
-        url = input("URL do PDF (ou 'sair'): ").strip()
-        
-        if url.lower() == 'sair':
-            break
-            
-        if not url:
-            print("URL vazia, tente novamente.")
-            continue
-            
-        ticker = input("Ticker (ex: ABEV3): ").strip().upper()
-        
-        if not ticker:
-            ticker = "EMPRESA"
-            
-        try:
-            ano = int(input("Ano (ex: 2023): ").strip())
-        except:
-            ano = datetime.now().year
-            
-        trimestre = input("Trimestre (1T, 2T, 3T, 4T ou Enter): ").strip().upper()
-        if not trimestre:
-            trimestre = 'NA'
-            
-        tipo = input("Tipo (transcricao, apresentacao, release ou Enter): ").strip().lower()
-        if not tipo:
-            tipo = 'documento'
-            
-        resultado = downloader.baixar_pdf_unico(url, ticker, ano, trimestre, tipo)
-        
-        if resultado:
-            pdfs_baixados.append({
-                'url': url,
-                'ticker': ticker,
-                'ano': ano,
-                'trimestre': trimestre,
-                'tipo': tipo,
-                'arquivo': resultado
-            })
-            
-    return pdfs_baixados
+        # Scroll progressivo para forçar lazy load
+        for pct in [0.25, 0.5, 0.75, 1.0]:
+            driver.execute_script(
+                f"window.scrollTo(0, document.body.scrollHeight * {pct});")
+            time.sleep(1)
+        driver.execute_script("window.scrollTo(0, 0);")
+        time.sleep(6)  # espera extra para conteúdo dinâmico
 
-def receber_links_arquivo(arquivo: str):
-    """
-    Recebe links de um arquivo CSV ou JSON
-    """
-    downloader = DownloaderLinks()
-    
-    if arquivo.endswith('.csv'):
-        df = pd.read_csv(arquivo)
-        
-        # Verifica colunas necessárias
-        colunas_necessarias = ['url', 'ticker']
-        if not all(col in df.columns for col in colunas_necessarias):
-            print(f"Erro: O arquivo CSV precisa ter as colunas: {colunas_necessarias}")
-            return
-            
-        # Converte para lista de dicionários
-        lista_pdfs = []
-        for _, row in df.iterrows():
-            pdf = {
-                'url': row['url'],
-                'ticker': row['ticker'],
-                'ano': row.get('ano', datetime.now().year),
-                'trimestre': row.get('trimestre', 'NA'),
-                'tipo': row.get('tipo', 'documento')
-            }
-            lista_pdfs.append(pdf)
-            
-        downloader.baixar_lista_pdfs(lista_pdfs)
-        
-    elif arquivo.endswith('.json'):
-        with open(arquivo, 'r', encoding='utf-8') as f:
-            dados = json.load(f)
-            
-        if isinstance(dados, list):
-            downloader.baixar_lista_pdfs(dados)
-        else:
-            print("Erro: JSON deve ser uma lista de objetos")
-            
-    else:
-        print("Formato não suportado. Use CSV ou JSON.")
+        links = driver.find_elements(By.TAG_NAME, "a")
+        log.info(f"  Links na página: {len(links)}")
+
+        for link in links:
+            try:
+                href  = link.get_attribute("href") or ""
+                texto = link.text or ""
+                aria  = link.get_attribute("aria-label") or ""
+                title = link.get_attribute("title") or ""
+                tc    = f"{href} {texto} {aria} {title}"
+            except Exception:
+                continue
+
+            hl = _norm(href)
+            # Aceita PDF direto OU botões de download
+            eh_pdf = (".pdf" in hl or "download" in hl or
+                      "arquivo" in hl or "getfile" in hl or
+                      "attachment" in hl)
+            if not eh_pdf:
+                continue
+
+            # Filtro de ano
+            anos = re.findall(r"20\d{2}", tc)
+            if anos and str(ano) not in anos:
+                continue
+
+            # Filtro de trimestre
+            tri = _detectar_tri(tc)
+            if tri and tri != trimestre:
+                continue
+
+            url_abs = href if href.startswith("http") else urljoin(url_base, href)
+
+            for tipo, kws in KEYWORDS.items():
+                if _contem(tc, kws):
+                    if url_abs not in candidatos[tipo]:
+                        candidatos[tipo].append(url_abs)
+                    break
+            else:
+                if url_abs not in candidatos["release"]:
+                    candidatos["release"].append(url_abs)
+
+    except WebDriverException as e:
+        log.warning(f"  Erro Selenium: {e}")
+    return candidatos
+
+
+def _baixar_pdf(url_pdf, caminho):
+    if caminho.exists():
+        log.info(f"  ⚠ Já existe: {caminho.name}")
+        return True
+    try:
+        session = requests.Session()
+        session.headers.update(HEADERS)
+        r = session.get(url_pdf, timeout=45, verify=False, allow_redirects=True)
+
+        if r.status_code != 200:
+            log.warning(f"  ✗ HTTP {r.status_code} — {url_pdf[:80]}")
+            return False
+
+        c = r.content
+        tamanho = len(c)
+        content_type = r.headers.get("Content-Type", "")
+        log.info(f"  Debug: {tamanho} bytes | CT={content_type[:50]} | inicio={c[:8]}")
+
+        # Verificação flexível: aceita qualquer uma das condições
+        eh_pdf = (
+            c[:4] == b"%PDF"                          # assinatura padrão
+            or b"%PDF" in c[:100]                     # BOM antes da assinatura
+            or "pdf" in content_type.lower()          # Content-Type correto
+            or (tamanho > 10000                       # arquivo grande
+                and b"<html" not in c[:500].lower()   # não é HTML
+                and b"<!doctype" not in c[:500].lower())
+        )
+
+        if not eh_pdf:
+            log.warning(f"  ✗ Não parece PDF: inicio={c[:20]}")
+            return False
+
+        if tamanho < 5000:
+            log.warning(f"  ✗ Muito pequeno ({tamanho} bytes)")
+            return False
+
+        caminho.parent.mkdir(parents=True, exist_ok=True)
+        caminho.write_bytes(c)
+        log.info(f"  ✓ {caminho.name} ({tamanho/1024:.1f} KB)")
+        return True
+
+    except Exception as e:
+        log.warning(f"  ✗ Erro download: {e}")
+        return False
+
+
+def _processar_empresa(driver, ticker, url_ri, ano, trimestre):
+    log.info(f"\n{'─'*58}")
+    log.info(f"  {ticker} | {ano} {trimestre}")
+
+    resultado = {"ticker": ticker, "ano": ano, "trimestre": trimestre,
+                 "tipo_baixado": None, "arquivo": None,
+                 "status": "sem_cobertura", "url_usada": url_ri}
+
+    # Lista de URLs para tentar: principal + alternativas
+    urls_tentar = [url_ri]
+    for alt in URLS_ALTERNATIVAS.get(ticker, []):
+        if alt not in urls_tentar:
+            urls_tentar.append(alt)
+
+    for url in urls_tentar:
+        log.info(f"  URL: {url[:70]}...")
+        candidatos = _extrair_links(driver, url, ano, trimestre)
+        total = sum(len(v) for v in candidatos.values())
+        log.info(f"  Candidatos: transcricao={len(candidatos['transcricao'])} "
+                 f"release={len(candidatos['release'])} "
+                 f"apresentacao={len(candidatos['apresentacao'])}")
+
+        if total == 0:
+            continue  # tenta próxima URL
+
+        for tipo in ("transcricao", "release", "apresentacao"):
+            for url_pdf in candidatos[tipo]:
+                h    = _hash(url_pdf)
+                nome = f"{ticker}_{ano}_{trimestre}_{tipo}_{h}.pdf"
+                cam  = DIRETORIO_PDFS / ticker / str(ano) / trimestre / nome
+                if _baixar_pdf(url_pdf, cam):
+                    resultado["tipo_baixado"] = tipo
+                    resultado["arquivo"]      = str(cam)
+                    resultado["status"]       = "sucesso"
+                    resultado["url_usada"]    = url
+                    return resultado
+
+        resultado["status"] = "falha_download"
+
+    log.info(f"  ✗ Sem PDF em nenhuma URL testada")
+    return resultado
+
+
+def _perguntar():
+    print("\n" + "─"*58)
+    print("CONFIGURAÇÃO")
+    print("─"*58)
+    e = input("  Ano (2023/2024/2025) [2024]: ").strip()
+    try:
+        ano = int(e) if e else 2024
+        if ano not in (2023,2024,2025): ano = 2024
+    except: ano = 2024
+    t = input("  Trimestre (1T/2T/3T/4T) [4T]: ").strip().upper()
+    tri = t if t in ("1T","2T","3T","4T") else "4T"
+    print(f"\n  ✓ ano={ano} | trimestre={tri}")
+    if input("  Confirmar? (Enter=sim / n=ajustar): ").strip().lower() == "n":
+        return _perguntar()
+    return {"ano": ano, "trimestre": tri}
+
 
 def main():
-    """
-    Função principal
-    """
-    print("="*60)
-    print("DOWNLOADER DE PDFs COM LINKS FORNECIDOS")
-    print("="*60)
-    print(f"Diretório de saída: {DIRETORIO_PDFS}")
-    print("="*60)
-    print("""
-Escolha o modo:
-1. Inserir links manualmente (interativo)
-2. Carregar links de arquivo CSV/JSON
-3. Exemplo com links pré-definidos
-0. Sair
-    """)
-    
+    print("="*58)
+    print("SCRAPER EARNINGS CALLS v2 — TOP 15 IBrX-100")
+    print("="*58)
+
+    if not CHROMEDRIVER_PATH.exists():
+        print(f"ChromeDriver não encontrado: {CHROMEDRIVER_PATH}")
+        return
+
+    csv_path = input("\nCSV (url + ticker) [Enter = top15_ri.csv]: ").strip()
+    if not csv_path:
+        csv_path = str(RAIZ / "data" / "top15_ri.csv")
+    if not os.path.exists(csv_path):
+        print(f"Não encontrado: {csv_path}")
+        return
+
+    df = pd.read_csv(csv_path)
+    if not {"url","ticker"}.issubset(df.columns):
+        print("CSV precisa de colunas: url, ticker")
+        return
+
+    print(f"✓ {len(df)} empresas carregadas")
+    params = _perguntar()
+    ano, trimestre = params["ano"], params["trimestre"]
+
+    DIRETORIO_PDFS.mkdir(parents=True, exist_ok=True)
+    DIRETORIO_LOGS.mkdir(parents=True, exist_ok=True)
+
+    log.info("Iniciando Chrome headless...")
     try:
-        opcao = input("Opção: ").strip()
-    except:
+        driver = _criar_driver()
+    except Exception as e:
+        print(f"Erro ChromeDriver: {e}")
         return
-        
-    downloader = DownloaderLinks()
-    
-    if opcao == '1':
-        pdfs = receber_links_manual()
-        
-        if pdfs:
-            # Salva registro
-            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            df = pd.DataFrame(pdfs)
-            df.to_csv(f'registro_downloads_{timestamp}.csv', index=False, encoding='utf-8-sig')
-            print(f"\nRegistro salvo em: registro_downloads_{timestamp}.csv")
-            
-    elif opcao == '2':
-        arquivo = input("Caminho do arquivo (CSV ou JSON): ").strip()
-        
-        if arquivo and os.path.exists(arquivo):
-            receber_links_arquivo(arquivo)
-        else:
-            print("Arquivo não encontrado!")
-            
-    elif opcao == '3':
-        # Exemplo com links pré-definidos
-        exemplos = [
-            {
-                'url': 'https://exemplo.com/ambev_4T23_apresentacao.pdf',
-                'ticker': 'ABEV3',
-                'ano': 2023,
-                'trimestre': '4T',
-                'tipo': 'apresentacao'
-            },
-            {
-                'url': 'https://exemplo.com/ambev_4T23_transcricao.pdf',
-                'ticker': 'ABEV3',
-                'ano': 2023,
-                'trimestre': '4T',
-                'tipo': 'transcricao'
-            },
-        ]
-        
-        print("\nExemplos de links (substitua pelos reais):")
-        for ex in exemplos:
-            print(f"  {ex['ticker']} {ex['ano']} {ex['trimestre']} - {ex['url']}")
-            
-        print("\nUse o modo 1 para inserir seus links reais.")
-        
-    elif opcao == '0':
-        print("Saindo...")
-        return
-        
-    print("\nProcesso concluído!")
+
+    resultados = []
+    try:
+        for _, row in df.iterrows():
+            res = _processar_empresa(
+                driver, str(row["ticker"]).strip().upper(),
+                str(row["url"]).strip(), ano, trimestre)
+            resultados.append(res)
+            time.sleep(2)
+    except KeyboardInterrupt:
+        log.info("Interrompido.")
+    finally:
+        driver.quit()
+        log.info("Chrome encerrado.")
+
+    df_res = pd.DataFrame(resultados)
+    ts  = datetime.now().strftime("%Y%m%d_%H%M%S")
+    rel = DIRETORIO_LOGS / f"scraper_{ano}_{trimestre}_{ts}.csv"
+    df_res.to_csv(rel, index=False, encoding="utf-8-sig")
+
+    print(f"\n{'='*58}")
+    print("RESUMO")
+    print(f"{'='*58}")
+    for status, label in [("sucesso","✓ Sucesso"),("sem_cobertura","✗ Sem cobertura"),
+                          ("falha_download","! Falha download")]:
+        n = (df_res["status"]==status).sum()
+        print(f"  {label}: {n}")
+    if (df_res["status"]=="sucesso").sum() > 0:
+        print("\n  Por tipo:")
+        for t,c in df_res[df_res["status"]=="sucesso"]["tipo_baixado"].value_counts().items():
+            print(f"    {t}: {c}")
+    print(f"\nRelatório: {rel}")
 
 if __name__ == "__main__":
-    main() 
+    main()
+
+    

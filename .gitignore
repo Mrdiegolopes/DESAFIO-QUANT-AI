@@ -81,3 +81,6 @@ cache_urls_ri.pkl
 *.pkl
 *.parquet
 *.feather
+
+#
+.env
