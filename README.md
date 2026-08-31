@@ -1,8 +1,7 @@
 # Fortal Gradient — Quality-Adjusted Value Factor Model with LLM Sentiment
 
-> *Precisão de rapina. Inteligência de mercado.*
 
-**Desafio Quant AI Itaú Asset 2026** — IBrX-100 Portfolio Optimization via Quality-Adjusted Value Factors & Verified Earnings Call Sentiment + Black-Litterman
+IBrX-100 Portfolio Optimization via Quality-Adjusted Value Factors & Verified Earnings Call Sentiment + Black-Litterman
 
 ---
 
@@ -410,10 +409,4 @@ O yfinance retorna o número de ações atuais, não o histórico. Introduces vi
 
 ---
 
-## Identidade do Robô
-
-**Nome:** CARCARÁ
-**Tagline:** *Precisão de rapina. Inteligência de mercado.*
-
-O Carcará é uma ave de rapina do Nordeste brasileiro — veloz, preciso e oportunista. Identifica sua presa antes dos concorrentes e age com convicção. O modelo compartilha esse DNA: varre o IBrX-100 em busca de ações sistematicamente subprecificadas, com disciplina estatística e visão de longo prazo.
 
